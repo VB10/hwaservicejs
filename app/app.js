@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 const app = express();
 
-const LoginController = require("./feature/login/login_controller");
+const LoginController = require("./controller/login/login_controller");
 
 mongoose.connect("mongodb://localhost/ecommerce", {
   useNewUrlParser: true,
