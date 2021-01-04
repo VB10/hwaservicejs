@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 const LoginController = require("./controller/login/login_controller");
+const HouseController = require("./controller/feeds/house/house_controller");
 
 mongoose.connect("mongodb://localhost/ecommerce", {
   useNewUrlParser: true,
@@ -17,7 +18,11 @@ const PORT = process.env.PORT || 3000;
 
 app.use(LoginController.router);
 
-app.listen(PORT, () =>
+app.use(HouseController.router);
+
+app.listen(PORT, () => {
   console.log(`Server Started at Port ${PORT}
-=> http://localhost:${PORT}`)
-);
+  => http://localhost:${PORT}`);
+
+  console.log(Date());
+});

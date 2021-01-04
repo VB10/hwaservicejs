@@ -16,11 +16,11 @@ router.post(loginPath, (req, res) => {
   // const
   Login.findOne(query, (err, user) => {
     if (err) {
-      return res.status(httpStatusCode.INTERNAL_SERVER_ERROR).send();
+      return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send();
     }
 
     if (!user) {
-      return res.status(httpStatusCode.NOT_FOUND).send();
+      return res.status(StatusCodes.NOT_FOUND).send();
     }
 
     var _jwt = jwt.sign(
@@ -40,7 +40,7 @@ router.post(registerPath, (req, res) => {
     if (err) {
       console.log(err);
       return res
-        .status(httpStatusCode.INTERNAL_SERVER_ERROR)
+        .status(StatusCodes.INTERNAL_SERVER_ERROR)
         .send({ err: err.message });
     } else {
       return res.json(data);
