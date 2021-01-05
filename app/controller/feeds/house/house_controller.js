@@ -21,6 +21,26 @@ router.post(housePath, (req, res) => {
   });
 });
 
+router.get(housePath, (req, res) => {
+  House.find({}, (err, docs) => {
+    if (err || docs.length === 0) {
+      return res.status(StatusCodes.NOT_FOUND).json(err);
+    } else {
+      return res.status(StatusCodes.OK).json(docs);
+    }
+  });
+});
+
+router.delete(housePath, (_, res) => {
+  House.deleteMany({}, (err) => {
+    if (!err) {
+      return res.status(StatusCodes.NOT_FOUND).json(err);
+    } else {
+      return res.status(StatusCodes.OK);
+    }
+  });
+});
+
 router.post(houseUser, (req, res) => {
   const buildUserModel = new BuildUser(req.body);
   buildUserModel.save((err, data) => {

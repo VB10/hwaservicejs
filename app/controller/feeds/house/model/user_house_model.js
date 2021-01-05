@@ -10,6 +10,11 @@ var houseModel = new mongoose.Schema({
     unique: true,
     index: true,
   },
+  image: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   description: {
     type: String,
     required: true,
