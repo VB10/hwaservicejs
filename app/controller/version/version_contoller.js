@@ -67,7 +67,6 @@ router.get(versionPath, async (req, res) => {
 
 router.delete(versionPath, async (_, res) => {
   await Version.remove();
-
   return res.json();
 });
 
