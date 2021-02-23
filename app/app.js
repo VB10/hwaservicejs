@@ -9,6 +9,8 @@ const HouseController = require("./controller/feeds/house/house_controller");
 const FriendController = require("./controller/feeds/friends/friends_controller");
 const VersionController = require("./controller/version/version_contoller");
 
+const GameController = require("./controller/game-pubpg/pubg_game_controller");
+
 mongoose.connect("mongodb://localhost/ecommerce", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -23,6 +25,8 @@ app.use(LoginController.router);
 app.use(HouseController.router);
 app.use(FriendController.router);
 app.use(VersionController.router);
+
+app.use(GameController.router);
 
 app.listen(PORT, () => {
   console.log(`Server Started at Port ${PORT}
