@@ -10,6 +10,7 @@ const FriendController = require("./controller/feeds/friends/friends_controller"
 const VersionController = require("./controller/version/version_contoller");
 
 const GameController = require("./controller/game-pubpg/pubg_game_controller");
+const BurgerController = require("./controller/burgers/burger_controller");
 
 mongoose.connect("mongodb://localhost/ecommerce", {
   useNewUrlParser: true,
@@ -21,7 +22,7 @@ app.use(bodyParser.json());
 const PORT = process.env.PORT || 3000;
 
 app.use(LoginController.router);
-
+app.use(BurgerController.router);
 app.use(HouseController.router);
 app.use(FriendController.router);
 app.use(VersionController.router);
